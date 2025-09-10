@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --color-primary: #1e3a8a; /* blue-800 - Navy authority */
+  --color-secondary: #3b82f6; /* blue-500 - Professional blue */
+  --color-accent: #f59e0b; /* amber-500 - Gold accent */
+  --color-gold: #fbbf24; /* amber-400 - Bright gold */
+  --color-gold-dark: #d97706; /* amber-600 - Dark gold */
+  
+  /* Background Colors */
+  --color-background: #ffffff; /* white - Clean canvas */
+  --color-surface: #f8fafc; /* slate-50 - Subtle section separation */
+  
+  /* Text Colors */
+  --color-text-primary: #1f2937; /* gray-800 - High contrast */
+  --color-text-secondary: #6b7280; /* gray-500 - Supporting details */
+  
+  /* Status Colors */
+  --color-success: #10b981; /* emerald-500 - Positive reinforcement */
+  --color-warning: #f59e0b; /* amber-500 - Scarcity messaging */
+  --color-error: #ef4444; /* red-500 - Form validation */
+  
+  /* Border Colors */
+  --color-border: #e5e7eb; /* gray-200 - Form inputs */
+  --color-border-accent: #f59e0b; /* amber-500 - Gold highlight */
+}
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 ease-in-out;
+    background-color: var(--color-accent);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-glow {
+    @apply bg-accent text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 ease-in-out;
+    background-color: var(--color-accent);
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+  }
+  
+  .btn-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(251, 191, 36, 0.6);
+  }
+  
+  .card-speaker {
+    @apply bg-white rounded-lg p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-partner {
+    @apply bg-white rounded-lg p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border-2;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-border);
+  }
+  
+  .card-partner:hover {
+    border-color: var(--color-gold);
+  }
+  
+  .pricing-card {
+    @apply bg-white rounded-lg p-6 shadow-lg border-2;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-border);
+  }
+  
+  .pricing-card.featured {
+    border-color: var(--color-border-accent);
+  }
+  
+  .form-input {
+    @apply w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition-all duration-200;
+    border-color: var(--color-border);
+  }
+  
+  .form-input:focus {
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.1);
+  }
+  
+  .testimonial-quote {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+  }
+  
+  .speaker-credential {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+  }
+  
+  .timeline-item {
+    @apply relative pl-8 pb-8;
+  }
+  
+  .timeline-item::before {
+    content: '';
+    @apply absolute left-0 top-2 w-4 h-4 rounded-full;
+    background-color: var(--color-gold);
+    box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+  }
+  
+  .timeline-item:not(:last-child)::after {
+    content: '';
+    @apply absolute left-2 top-6 w-0.5 h-full;
+    background-color: var(--color-gold);
+  }
+}
+
+@layer utilities {
+  .text-accent {
+    color: var(--color-accent);
+  }
+  
+  .text-gold {
+    color: var(--color-gold);
+  }
+  
+  .text-gold-dark {
+    color: var(--color-gold-dark);
+  }
+  
+  .text-warning {
+    color: var(--color-warning);
+  }
+  
+  .text-success {
+    color: var(--color-success);
+  }
+  
+  .text-error {
+    color: var(--color-error);
+  }
+  
+  .bg-surface {
+    background-color: var(--color-surface);
+  }
+  
+  .bg-gold {
+    background-color: var(--color-gold);
+  }
+  
+  .bg-gold-dark {
+    background-color: var(--color-gold-dark);
+  }
+  
+  .shadow-cta {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .shadow-card {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .shadow-glow {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+  }
+  
+  .transition-smooth {
+    transition: all 200ms ease-in-out;
+  }
+  
+  .transition-form {
+    transition: all 300ms ease-in-out;
+  }
+  
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom animations */
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.4); }
+  50% { box-shadow: 0 0 30px rgba(251, 191, 36, 0.7); }
+}
+
+.animate-glow {
+  animation: glow 2s infinite;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
